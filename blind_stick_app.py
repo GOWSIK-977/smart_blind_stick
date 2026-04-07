@@ -7,6 +7,7 @@ import plotly.graph_objects as go
 from datetime import datetime
 import io
 import base64
+import time
 
 # Page configuration
 st.set_page_config(
@@ -36,9 +37,6 @@ st.markdown("""
         margin: 1rem 0;
         cursor: pointer;
         transition: transform 0.3s;
-    }
-    .emergency-btn:hover {
-        transform: scale(1.02);
     }
     .stat-card {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -92,16 +90,9 @@ if 'model_loaded' not in st.session_state:
 def load_model():
     """Load YOLOv8 model"""
     try:
-        from ultralytics import YOLOR
-        # Try different model names
-        try:
+        from ultralytics import YOLO
+        with st.spinner("🔄 Downloading AI model (first time may take 1-2 minutes)..."):
             model = YOLO('yolov8n.pt')
-        except:
-            try:
-                model = YOLO('yolov8nano.pt')
-            except:
-                # Fallback to a smaller model
-                model = YOLO('yolov8s.pt')
         return model
     except Exception as e:
         st.error(f"⚠️ Model loading error: {e}")
@@ -229,11 +220,10 @@ def main():
     """, unsafe_allow_html=True)
     
     # Load model
-    with st.spinner("🔄 Loading AI Model (first time may take a moment)..."):
-        model = load_model()
+    model = load_model()
     
     if model is None:
-        st.error("❌ Failed to load AI model. Please check your internet connection and try again.")
+        st.error("❌ Failed to load AI model. Please check your internet connection.")
         st.stop()
     
     if not st.session_state.model_loaded:
@@ -249,11 +239,6 @@ def main():
         st.markdown("### 🚨 Emergency")
         if st.button("🔴 ACTIVATE EMERGENCY ALERT 🔴", use_container_width=True):
             st.session_state.emergency_mode = True
-            st.markdown("""
-            <div class="emergency-btn">
-                🚨 EMERGENCY ACTIVATED! HELP NEEDED IMMEDIATELY! 🚨
-            </div>
-            """, unsafe_allow_html=True)
             
             st.session_state.detection_history.append({
                 'timestamp': datetime.now(),
@@ -270,6 +255,12 @@ def main():
                 var audio = new Audio('https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3');
                 audio.play();
             </script>
+            """, unsafe_allow_html=True)
+            
+            st.markdown("""
+            <div class="emergency-btn">
+                🚨 EMERGENCY ACTIVATED! HELP NEEDED IMMEDIATELY! 🚨
+            </div>
             """, unsafe_allow_html=True)
         
         if st.session_state.emergency_mode:
@@ -473,10 +464,12 @@ def main():
         if not df_history.empty:
             # Format for display
             display_cols = ['timestamp', 'class', 'direction', 'distance', 'confidence']
-            if all(col in df_history.columns for col in display_cols):
-                display_df = df_history[display_cols].copy()
+            existing_cols = [col for col in display_cols if col in df_history.columns]
+            if existing_cols:
+                display_df = df_history[existing_cols].copy()
                 display_df['timestamp'] = pd.to_datetime(display_df['timestamp']).dt.strftime('%H:%M:%S')
-                display_df['confidence'] = display_df['confidence'].apply(lambda x: f"{x:.2%}" if pd.notna(x) else "")
+                if 'confidence' in display_df.columns:
+                    display_df['confidence'] = display_df['confidence'].apply(lambda x: f"{x:.2%}" if pd.notna(x) else "")
                 display_df = display_df.rename(columns={
                     'timestamp': 'Time',
                     'class': 'Object',
