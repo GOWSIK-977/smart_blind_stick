@@ -1,0 +1,232 @@
+# Smart Blind Stick Project - Complete Requirements
+# Core Computer Vision & AI
+opencv-python==4.8.1.78
+numpy==1.24.3
+ultralytics==8.0.207
+
+# Text-to-Speech
+pyttsx3==2.90
+
+# Web Framework & API
+flask==2.3.3
+flask-cors==4.0.0
+websockets==12.0
+
+# Database
+pymongo==4.5.0
+bson==0.5.10
+
+# HTTP Requests
+requests==2.31.0
+
+# Serial Communication (Bluetooth/Arduino)
+pyserial==3.5
+
+# System & Platform Detection
+psutil==5.9.6
+
+# Image Processing
+Pillow==10.0.1
+
+# Date & Time Handling
+python-dateutil==2.8.2
+
+# JSON Handling
+ujson==5.8.0
+
+# Async Support
+aiofiles==23.2.1
+
+# WebSocket Client for Mobile
+socketio-client==5.3.6
+
+# Geolocation & Maps
+geopy==2.4.0
+folium==0.14.0
+
+# Audio Processing
+sounddevice==0.4.6
+soundfile==0.12.1
+
+# Bluetooth Support (Windows)
+pywin32==306; sys_platform == "win32"
+
+# GUI Support (Optional)
+tkinter-tooltip==2.0.1
+
+# Logging & Monitoring
+colorlog==6.7.0
+watchdog==3.0.0
+
+# Testing & Development
+pytest==7.4.3
+pytest-asyncio==0.21.1
+
+# Configuration Management
+python-dotenv==1.0.0
+
+# Data Validation
+pydantic==2.5.0
+
+# API Documentation
+flask-restx==1.2.0
+
+# Security
+bcrypt==4.0.1
+jwt==1.3.1
+
+# Performance Monitoring
+memory-profiler==0.61.0
+line-profiler==4.1.1
+
+# Image Enhancement
+opencv-contrib-python==4.8.1.78
+
+# Machine Learning Models
+torch==2.0.1
+torchvision==0.15.2
+
+# Mobile App Dependencies (if using React Native)
+# Uncomment if building mobile app
+# react-native==0.72.6
+# expo==49.0.0
+# expo-location==16.1.0
+# expo-notifications==0.20.1
+# @react-navigation/native==6.1.9
+# @react-navigation/stack==6.3.20
+
+# Development Tools
+black==23.11.0
+flake8==6.1.0
+autopep8==2.0.4
+
+# Environment Management
+virtualenv==20.24.7
+pipenv==2023.11.15
+
+# System Integration
+pywinusb==0.4.2
+pyserial-asyncio==0.6
+
+# Camera Support
+picamera==1.13
+picamera[array]==1.13
+
+# GPS Support (if using GPS module)
+gps==3.24
+gpsd-py3==0.3.0
+
+# Sensor Integration
+smbus2==0.4.2
+RPi.GPIO==0.7.1; sys_platform == "linux"
+
+# Cloud Storage (Optional)
+boto3==1.34.0
+google-cloud-storage==2.10.0
+
+# Notification Services
+twilio==8.10.3
+pusher==3.3.2
+
+# Data Analysis
+pandas==2.1.4
+matplotlib==3.7.2
+seaborn==0.12.2
+
+# Email Notifications
+smtplib2==0.2.1
+
+# SMS Gateway (Optional)
+nexmo==2.5.2
+
+# WebRTC for Real-time Communication
+aiortc==1.6.0
+
+# Redis for Caching (Optional)
+redis==5.0.1
+
+# Configuration Files
+pyyaml==6.0.1
+configparser==6.0.0
+
+# Error Handling
+sentry-sdk[flask]==1.38.0
+
+# Rate Limiting
+flask-limiter==3.5.0
+
+# CORS Handling
+flask-cors==4.0.0
+
+# Input Validation
+marshmallow==3.20.1
+
+# Database Migrations
+alembic==1.12.1
+
+# Background Tasks
+celery==5.3.4
+
+# WebSocket Extensions
+flask-socketio==5.3.6
+
+# Template Engine
+jinja2==3.1.2
+
+# File Upload Handling
+werkzeug==2.3.7
+
+# Time Zone Handling
+pytz==2023.3
+
+# QR Code Generation (Optional)
+qrcode==7.4.2
+pillow==10.0.1
+
+# Barcode Detection (Optional)
+pyzbar==0.1.9
+
+# Face Recognition (Optional)
+face-recognition==1.3.0
+dlib==19.24.2
+
+# Object Tracking (Optional)
+scikit-learn==1.3.2
+scipy==1.11.4
+
+# Audio Analysis
+librosa==0.10.1
+pyaudio==0.2.11
+
+# Video Processing
+moviepy==1.0.3
+imageio==2.31.6
+
+# Network Tools
+netifaces==0.11.0
+scapy==2.5.0
+
+# Bluetooth Low Energy (BLE)
+bleak==0.21.0
+
+# Arduino Communication
+pyfirmata==1.1.0
+
+# MQTT for IoT Communication
+paho-mqtt==1.6.1
+
+# REST API Client
+httpx==0.25.2
+
+# Async HTTP
+aiohttp==3.9.1
+
+# Data Serialization
+msgpack==1.0.7
+
+# Caching
+functools32==3.2.3.post2
+
+# System Monitoring
+GPUtil==1.4.0
+py-cpuinfo==9.0.0
