@@ -230,3 +230,8 @@ functools32==3.2.3.post2
 # System Monitoring
 GPUtil==1.4.0
 py-cpuinfo==9.0.0
+streamlit
+pandas
+PyPDF2
+textblob
+plotly
